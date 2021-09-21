@@ -21,11 +21,12 @@ const StoreScreen=()=>{
 
             <ScrollView showsVerticalScrollIndicator={false} >
                 {/*Kindle Store*/}
-
+                <TouchableOpacity>
                 <View style={{height:45,borderBottomWidth:0.2,borderColor:"#eaeaea",paddingLeft:20,paddingTop:10,flexDirection:'row'}}>
                     <Icon name='arrow-back-ios' size={12} style={{paddingTop:5}} />
                     <Text style={{fontWeight:'bold'}}>Kindle Store</Text>
                 </View>
+                </TouchableOpacity>
                 {/*Icons horizontal slider and banner*/}
 
                 <View style={{backgroundColor:'#fff',height:280,marginBottom:6,borderBottomWidth:0.2,borderColor:"#eaeaea"}}>
