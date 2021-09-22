@@ -5,13 +5,17 @@ import {
     Image,
     TextInput,
     TouchableOpacity,
+    Text,
  } from 'react-native'
 var search=require('../img/icons/search.png')
 var bell=require('../img/icons/Bell-icon.png')
-const header = () => {
+const header = (prop) => {
     return (
-        <View style={styles.container1}>
-        <View style={styles.header}>
+       
+        <View style={styles.container1}> 
+        
+            {prop.Title&&<Text style={{marginTop:10,marginRight:225}}>KINDLE STORE</Text>}
+            {prop.search&&<View style={styles.header}>
             <Image source={search} style={{width:27,height:27,alignItems: 'center',marginTop:10}}/>
             <TextInput 
                 style={{flex:1}}
@@ -19,7 +23,7 @@ const header = () => {
                 placeholderTextColor="#636e72"
                 color="#636e72"
             />
-        </View>
+        </View>}
         <TouchableOpacity>
             <Image source={bell} style={styles.bell}/>
         </TouchableOpacity>

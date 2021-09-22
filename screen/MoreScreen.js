@@ -1,66 +1,75 @@
-import React,{useState} from 'react'
-import { View,TextInput,StyleSheet,Image,Text,TouchableOpacity} from 'react-native'
+import React from 'react'
+import { View,StyleSheet,Image,Text,TouchableOpacity,FlatList} from 'react-native'
 import Header from '../components/header'
-var user=require('../img/More/user.png')
-var sync=require('../img/More/sync.png')
-var setting=require('../img/More/setting.png')
-var info=require('../img/More/info-icon.png')
 
+function Item({ item }) {
+    return (
+      <View ><TouchableOpacity style={styles.container}>
+        {item.image}
+        <View >
+          <Text  style={styles.text}>{item.name}</Text>
+        </View>
+        </TouchableOpacity>
 
-const MoreScreen =()=>{
-  const [value,setValue] = useState("")
+      </View>
+    );
+  }
+  FlatListItemSeparator = () => {
+    return (
+      <View
+        style={styles.horizontalLine}
+      />
+    );
+  }
+const MoreScreen =(prop)=>{
+    state={
+        data:[
+            {key:1,
+            name:"Sign In with Amazon",
+            image: <Image style={styles.img} source={require('../img/More/user.png')}/>},
+            {key:2,
+            name:"Sync",
+            image:<Image style={styles.img} source={require('../img/More/sync.png')}/>},
+            {key:3,
+            name:"Settings",
+            image:<Image style={styles.img} source={require('../img/More/setting.png')}/>},
+            {key:4,
+            name:"Info",
+            image:<Image style={styles.img} source={require('../img/More/info-icon.png')}/>},
+        ]
+    }
         return (
             <View >
-              <Header></Header>
-            
-           <View >
-             <TouchableOpacity><View style={{flexDirection:'row',padding:12,marginLeft:10}}>
+                <Header search={true}/>
                
-                <Image source={user} style={{width:20,height:20,marginRight:20,}}/>
-             <Text style={{fontWeight:'600',fontSize:16}}>Sign In with Amazon</Text></View></TouchableOpacity>
-             <View style={styles.horizontalLine} />
-             <TouchableOpacity><View style={{flexDirection:'row',padding:12,marginLeft:10}}>
-                <Image source={sync} style={{width:20,height:20,marginRight:20}}/>
-             <Text style={{fontWeight:'600',fontSize:16}}>Sync</Text></View></TouchableOpacity>
-             <View style={styles.horizontalLine} />
-             <TouchableOpacity><View style={{flexDirection:'row',padding:12,marginLeft:10}}>
-                <Image source={setting} style={{width:20,height:20,marginRight:20}}/>
-             <Text style={{fontWeight:'600',fontSize:16}}>Settings</Text></View></TouchableOpacity>
-             <View style={styles.horizontalLine} />
-             <TouchableOpacity><View style={{flexDirection:'row',padding:12,marginLeft:10}}>
-                <Image source={info} style={{width:20,height:20,marginRight:20}}/>
-             <Text style={{fontWeight:'600',fontSize:16}}>Info</Text></View></TouchableOpacity>
-             <View style={styles.horizontalLine} />
+                    <FlatList
+                        data={this.state.data}
+                        renderItem={Item}
+                        keyExtractor={item => item.key}
+                        ItemSeparatorComponent = { this.FlatListItemSeparator }
+                        ListFooterComponent= { this.FlatListItemSeparator }
 
-           </View>
-          </View>
+                    />
+            </View>
         )
     }
 const styles=StyleSheet.create({
-      container1:{
-          backgroundColor:"#fff",
-          height:60,
-          paddingTop:6,
-          flexDirection:"row",
-          justifyContent:'space-around',
-          paddingLeft:7
-      
-      },
-      header:{
-       
-          marginBottom:10,
-          paddingLeft:20,
-          width:"80%",
-          backgroundColor:"#f2f2f2",
-          flexDirection:"row"
-      },
-      bell:{
-          width:22,
-          height:22,
-          marginTop:10
-      },
+    container:{
+        flexDirection:'row',
+        padding:12,
+    
+    },
+    img:{
+        width:20,
+        height:20,
+        marginRight:20,
+    },
+    text:{
+        fontWeight:'600',
+        fontSize:16,
+    },
+     
       horizontalLine:{
-  
         borderBottomWidth: 0.8,
         borderBottomColor: '#dfe6e9',
         marginTop: 10,

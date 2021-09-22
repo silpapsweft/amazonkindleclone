@@ -2,7 +2,8 @@ import React from 'react'
 import { Text, View,StyleSheet,Image,ScrollView,TouchableOpacity,TouchableHighlight} from 'react-native'
 import {Icon} from 'react-native-elements'
 import {SliderBox} from 'react-native-image-slider-box';
-var bell=require('../img/icons/Bell-icon.png')
+import Header from '../components/header';
+import BookList from '../components/sampleslider';
 const image = [
      require('../img/Store/banner/ban1.png'),
      require('../img/Store/banner/ban2.png'),
@@ -12,12 +13,13 @@ const StoreScreen=()=>{
     return(
         <View>
             {/*header*/}
-            <View style={styles.container1}>
+            {/* <View style={styles.container1}>
                 <Text style={styles.storetext}>KINDLE STORE</Text>
                     <TouchableOpacity>
                     <Image source={bell} style={styles.bell}/>
                     </TouchableOpacity>
-            </View>
+            </View> */}
+            <Header search={false} Title={'Kindle Store'}/>
 
             <ScrollView showsVerticalScrollIndicator={false} >
                 {/*Kindle Store*/}
@@ -706,7 +708,8 @@ const StoreScreen=()=>{
                             </TouchableOpacity>
                         </View>
                             <View style={{borderWidth:0.2,borderColor:'#ccc',borderRadius:5}}>
-                                <TouchableOpacity>
+                               <BookList/>
+                                {/* <TouchableOpacity>
                                     <View style={{flexDirection:'row',padding:12,marginLeft:10}}>
                                         <Text>Literature and Fiction                                            <Text style={{fontSize:20}}>></Text></Text>
                                     </View>
@@ -885,7 +888,7 @@ const StoreScreen=()=>{
                                         <Text>Calendars                                                              <Text style={{fontSize:20}}>></Text></Text>
                                     </View>
                                 <View style={styles.horizontalLine1} />
-                                </TouchableOpacity>
+                                </TouchableOpacity> */}
                             </View>
                         </View>
                 </View>

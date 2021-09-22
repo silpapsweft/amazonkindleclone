@@ -6,7 +6,7 @@ const LibraryScreen =()=>{
     const [value,setValue] = useState("")
         return (
             <View>
-                <Header></Header>
+                <Header search={true}/>
                 {/*body*/}
                 <View style={{alignItems:'center'}}>
                     <Image source={lib} style={styles.libImage}/>
